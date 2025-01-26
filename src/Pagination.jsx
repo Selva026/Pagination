@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor:' #009879',
+    backgroundColor: "#009879",
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -50,6 +50,7 @@ export default function PaginatedTable() {
         setData(jsonData);
       } catch (error) {
         setError(error.message);
+        alert("Failed to fetch data. Please try again later."); // Alert on fetch failure
       } finally {
         setLoading(false);
       }
@@ -114,19 +115,46 @@ export default function PaginatedTable() {
           onClick={handlePrevious}
           disabled={currentPage === 1}
           sx={{ margin: 1 }}
-          style={{backgroundColor: '#009879', color: 'white', fontSize:"12px", height: "25px", width:"30px", borderRadius:"6px"}}
+          style={{
+            backgroundColor: "#009879",
+            color: "white",
+            fontSize: "12px",
+            height: "25px",
+            width: "50px",
+            borderRadius: "6px",
+          }}
         >
-          Prev
+          Previous
         </Button>
-        <Box sx={{ padding: "0 16px", fontSize: "15px", fontWeight: "bold" ,backgroundColor: '#009879', color: 'white', borderRadius:"6px", height: "30px", width:"35px", paddingTop:"5px" }}> 
-           {currentPage}
+        <Box
+          sx={{
+            padding: "0 16px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            backgroundColor: "#009879",
+            color: "white",
+            borderRadius: "6px",
+            height: "30px",
+            width: "40px",
+            textAlign: "center",
+            lineHeight: "30px",
+          }}
+        >
+          {currentPage}
         </Box>
         <Button
           variant="outlined"
           onClick={handleNext}
           disabled={currentPage === totalPages}
           sx={{ margin: 1 }}
-          style={{backgroundColor: '#009879', color: 'white', fontSize:"12px", height: "25px", width:"30px", borderRadius:"6px"}}
+          style={{
+            backgroundColor: "#009879",
+            color: "white",
+            fontSize: "12px",
+            height: "25px",
+            width: "50px",
+            borderRadius: "6px",
+          }}
         >
           Next
         </Button>
